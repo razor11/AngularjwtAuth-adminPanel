@@ -1,0 +1,39 @@
+<mat-sidenav-container class="sidenav-container" >
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar color="primary" routerLink="/welcome"
+    [routerLinkActiveOptions]="{exact:true}"
+    routerLinkActive="active-link">Menu</mat-toolbar>
+    <mat-nav-list>
+    
+      <a mat-list-item routerLink="infopedidos" routerLinkActive="active-link">Información de pedidos</a>
+      <a mat-list-item routerLink="listapedidos" routerLinkActive="active-link">Lista de pedidos</a>
+      <a mat-list-item routerLink="listaordenes" routerLinkActive="active-link">Listado de ordenes de entrega</a>
+      <a mat-list-item routerLink="listacomercios" routerLinkActive="active-link">Listado de comercios</a>
+      <a mat-list-item routerLink="listaproductos" routerLinkActive="active-link">Listado de productos</a>
+      <a mat-list-item routerLink="productlistPending" routerLinkActive="active-link">Listado de productos pendientes de aprobación</a>
+      <a mat-list-item routerLink="categories" routerLinkActive="active-link">Listado de categorias</a>
+
+      
+      
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>subemarket-admin</span>
+    </mat-toolbar>
+ <!-- Content Section Start-->
+ <router-outlet></router-outlet>
+ <!-- Content Section End-->
+  </mat-sidenav-content>
+</mat-sidenav-container>
