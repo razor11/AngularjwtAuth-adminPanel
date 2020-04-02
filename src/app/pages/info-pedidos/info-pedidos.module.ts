@@ -5,10 +5,13 @@ import { InfoPedidosRoutingModule } from './info-pedidos-routing.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+   
+  ],
   imports: [
     CommonModule,
-    InfoPedidosRoutingModule
+    InfoPedidosRoutingModule,
+
   ]
 })
 export class InfoPedidosModule { }

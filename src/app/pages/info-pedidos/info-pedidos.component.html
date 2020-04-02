@@ -1,1 +1,167 @@
-<p style="color: black;">info-pedidos works!</p>
+<mat-card>
+
+
+    <mat-toolbar-row>
+        <mat-card-title> Pedido# {{dataSource.id}} </mat-card-title>
+        <span class="example-spacer"></span>
+
+        <button class="headButton" [routerLink]="['/listapedidos']" mat-stroked-button color="primary">
+            <mat-icon>keyboard_arrow_left</mat-icon>Atras
+        </button>
+    </mat-toolbar-row>
+
+    <mat-divider></mat-divider>
+    <div class="container  add-padding-top">
+        <div fxLayout="row" fxLayout.xs="column">
+            <div fxFlex="30%">
+                <h3>Cliente</h3>
+                <p>{{dataSource.customerName}} {{dataSource.customerLastName}}<br>
+                    {{dataSource.customerEmail}}<br>
+                    {{dataSource.tel}}</p>
+            </div>
+            <div fxFlex="30%">
+                <h3>Dirección de envió</h3>
+                <p>{{dataSource.address}}<br>
+                    {{dataSource.city}}<br>
+                    {{dataSource.country}}</p>
+            </div>
+
+            <div fxFlex="40%">
+                <table style="width: 100%; border-collapse:separate; 
+           border-spacing: 0 1em;  ">
+                    <tr class="border_bottom">
+                        <td>Estado: </td>
+                        <td>
+                            <mat-chip-list>
+                                <mat-chip>
+                                    {{dataSource.state}}
+                                </mat-chip>
+                            </mat-chip-list>
+
+                        </td>
+
+                    </tr>
+                    <tr class="border_bottom">
+                        <td>Metodo de Pago: </td>
+                        <td>
+                            {{dataSource.payMethod}}
+                        </td>
+
+                    </tr>
+
+                    <tr class="border_bottom">
+                        <td>ID de Pago: </td>
+                        <td>
+                            {{dataSource.paymentId}}
+                        </td>
+
+                    </tr>
+
+                    <tr class="border_bottom">
+                        <td>Fecha del Pedido: </td>
+                        <td>
+                            {{dataSource.orderDate}}
+                        </td>
+
+                    </tr>
+
+
+
+
+                </table>
+            <mat-toolbar-row>
+                <span class="example-spacer"></span>
+                <button fxLayout="row" fxLayout.xs="column" class="headButton" mat-raised-button color="accent">Mostrar pago recibido <mat-icon>done
+                    </mat-icon></button>
+        
+            </mat-toolbar-row>
+           
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <h4>Articulos</h4>
+ 
+        <!-- <table   class="order-dtl-table">
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr style="background-color:#EBEFF2; 
+            padding: 3em;">
+                <td>{{dataSource.product}}</td>
+                <td>{{dataSource.price | currency:'L'}}</td>
+                <td>{{dataSource.amount}}</td>
+                <td>{{dataSource.subtotal  | currency:'L'}}</td>
+            </tr>
+            <tr>
+                <td ></td>
+                <td ></td>
+                <td class="tdata">Subtotal:</td>
+                <td class="tdata">{{dataSource.subtotal  | currency:'L'}}</td>
+            </tr>
+            <tr>
+                <td ></td>
+                <td ></td>
+                <td class="tdata">Descuento:</td>
+                <td class="tdata">{{dataSource.discount  | currency:'L'}}</td>
+            </tr>
+            <tr>
+                <td ></td>
+                <td ></td>
+                <td class="tdata">Envio:</td>
+                <td class="tdata">{{dataSource.shippingPrice  | currency:'L'}}</td>
+            </tr>
+            <tr>
+                <td ></td>
+                <td ></td>
+                <td class="tdata"><b>Total:</b></td>
+                <td class="tdata"><b>{{dataSource.total  | currency:'L'}}</b></td>
+            </tr>
+
+        </table> -->
+        <div class="mat-table order-dtl-table">
+            <div class="mat-header-row">
+              <div class="mat-header-cell">Producto</div>
+              <div class="mat-header-cell">Precio</div>
+              <div class="mat-header-cell">Cantidad</div>
+              <div class="mat-header-cell">Subtotal</div>
+            </div>
+            <div class="mat-row">
+              <div class="mat-cell">{{dataSource.product}}</div>
+              <div class="mat-cell">{{dataSource.price | currency:'L'}}</div>
+              <div class="mat-cell">{{dataSource.amount}}</div>
+              <div class="mat-cell">{{dataSource.subtotal  | currency:'L'}}</div>
+            </div>
+            <div class="mat-row">
+                <div class="mat-cell"></div>
+                <div class="mat-cell"></div>
+                <div class="mat-cell">Subtotal:</div>
+                <div class="mat-cell">{{dataSource.subtotal  | currency:'L'}}</div>
+              </div>
+              <div class="mat-row">
+                <div class="mat-cell"></div>
+                <div class="mat-cell"></div>
+                <div class="mat-cell">Envio:</div>
+                <div class="mat-cell">{{dataSource.shippingPrice  | currency:'L'}}</div>
+              </div>
+              <div class="mat-row">
+                <div class="mat-cell"></div>
+                <div class="mat-cell"></div>
+                <div class="mat-cell">Total:</div>
+                <div class="mat-cell">{{dataSource.total  | currency:'L'}}</div>
+              </div>
+              
+          </div>
+     
+  
+
+
+</mat-card>

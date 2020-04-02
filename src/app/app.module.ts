@@ -12,12 +12,24 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
-import { MainNavModule } from './pages/main-nav/main-nav.module';
+import { OrdenesListComponent } from './pages/ordenes-list/ordenes-list.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { DemoMaterialModule } from './Material-module';
+import { ListaPedidosComponent } from './pages/lista-pedidos/lista-pedidos.component';
+import { OrdersService } from './services/orders/orders.service';
+import { HttpClientModule } from '@angular/common/http';
+import { InfoPedidosComponent } from './pages/info-pedidos/info-pedidos.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent
+    MainNavComponent,
+    OrdenesListComponent,
+    ListaPedidosComponent,
+    InfoPedidosComponent
   ],
   imports: [
     BrowserModule,
@@ -30,10 +42,18 @@ import { MainNavModule } from './pages/main-nav/main-nav.module';
     MatIconModule,
     MatListModule,
     AppRoutingModule,
-
+    MatNativeDateModule,
+    DemoMaterialModule,
+    HttpClientModule,
+    NgbModule,
+    FlexLayoutModule
+    
 
   ],
-  providers: [],
+  entryComponents: [ListaPedidosComponent],
+  providers: [
+    OrdersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

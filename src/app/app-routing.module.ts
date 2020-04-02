@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainNavComponent } from './pages/main-nav/main-nav.component';
+import { InfoPedidosComponent } from './pages/info-pedidos/info-pedidos.component';
 
 const routes: Routes = [
 
@@ -22,13 +23,8 @@ const routes: Routes = [
         m => m.MainNavComponent
       )
   },
-  {
-    path: 'infopedidos',
-    loadChildren: () =>
-      import('./pages/info-pedidos/info-pedidos.module').then(
-        m => m.InfoPedidosModule
-      )
-  },
+
+  { path: 'infopedidos/:id', component: InfoPedidosComponent },
   {
     path: 'listapedidos',
     loadChildren: () =>
