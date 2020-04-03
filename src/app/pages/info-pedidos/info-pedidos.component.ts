@@ -23,7 +23,10 @@ export class InfoPedidosComponent implements OnInit {
   }
 
 
-
+  setValue(value): void {
+    this.dataSource.state = value;
+    console.log(this.dataSource.state);
+}
 
 
   ngOnInit(): void {

@@ -71,7 +71,9 @@
                 </table>
             <mat-toolbar-row>
                 <span class="example-spacer"></span>
-                <button fxLayout="row" fxLayout.xs="column" class="headButton" mat-raised-button color="accent">Marcar pago recibido <mat-icon>done
+                <button *ngIf="dataSource.state === 'Pendiente'" fxLayout="row" fxLayout.xs="column"  (click)="setValue('pagado')" class="headButton" mat-raised-button color="primary">Marcar pago recibido <mat-icon>done
+                    </mat-icon></button>
+                    <button *ngIf="dataSource.state === 'pagado'" fxLayout="row" fxLayout.xs="column"  class="headButton" mat-raised-button color="accent">Confirmar pago recibido <mat-icon>send
                     </mat-icon></button>
         
             </mat-toolbar-row>
