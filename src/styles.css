@@ -14,3 +14,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       margin-right: 0.3em;
   }
 
+
+
+  .active-list-item {
+    background-color: #2B72F0 !important; /* Note: You could also use a custom theme */
+    color: #ffffff !important;
+  }

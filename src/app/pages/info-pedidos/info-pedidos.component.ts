@@ -32,7 +32,7 @@ export class InfoPedidosComponent implements OnInit {
       this.route.paramMap.subscribe(params => { this.dataSource = this.data[+params.get('id')]; });
       console.log(this.order);
       this.order = this.dataSource;
-      this.order = new MatTableDataSource (this.order);
+      this.order = new MatTableDataSource;
     });
 
 
