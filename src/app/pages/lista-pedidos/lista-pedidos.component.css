@@ -17,15 +17,3 @@
     color: #3f51b5;
   }
 
-  table{
-      width: 1024px;
-  }
-
-  @media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
-    table{
-        width: 100% !important;
-    }
-  
-}

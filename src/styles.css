@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, sans-serif; }
 .router-outlet{
 
     display: flex;
     margin-top: 1%;
-    width: 100%;
+    width: 1024pc;
    
   }
 
@@ -25,3 +25,51 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: #2B72F0 !important; /* Note: You could also use a custom theme */
     color: #ffffff !important;
   }
+
+
+  /* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+  .router-outlet{
+
+    display: flex;
+    margin-top: 1%;
+    width: 1024px;
+   
+
+    
+  }
+
+  
+  table{
+    width: 1024px;
+  }
+  
+
+  
+.order-dtl-table {
+  width: 1024px;
+
+ 
+}
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+  .router-outlet{
+
+    display: flex;
+    margin-top: 1%;
+    width: 1024px;
+   
+  }
+
+  
+.order-dtl-table {
+  width: 1024px;
+
+ 
+}
+
+}

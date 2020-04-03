@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainNavComponent } from './pages/main-nav/main-nav.component';
 import { InfoPedidosComponent } from './pages/info-pedidos/info-pedidos.component';
 
 const routes: Routes = [
