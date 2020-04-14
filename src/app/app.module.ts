@@ -21,6 +21,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { InfoPedidosComponent } from './pages/info-pedidos/info-pedidos.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { StylePaginatorDirective } from './pages/directives/style-paginator';
+import { JwtModule } from '@auth0/angular-jwt';
+import { CategoryListComponent } from './pages/category-list/category-list.component';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthService } from './services/auth/auth.service';
+import { ListaComerciosComponent } from './pages/lista-comercios/lista-comercios.component';
+import { StoreDetailComponent } from './pages/store-detail/store-detail.component';
 
 
 @NgModule({
@@ -29,7 +38,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MainNavComponent,
     OrdenesListComponent,
     ListaPedidosComponent,
-    InfoPedidosComponent
+    InfoPedidosComponent,
+    CategoryListComponent,
+    StylePaginatorDirective,
+    ListaComerciosComponent,
+    LoginComponent,
+    StoreDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,14 +59,27 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatNativeDateModule,
     DemoMaterialModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('jwt');
+        },
+        whitelistedDomains: ['example.com'],
+        blacklistedRoutes: ['example.com/examplebadroute/']
+      }
+    }),
     NgbModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule
     
 
   ],
   entryComponents: [ListaPedidosComponent],
   providers: [
-    OrdersService
+    OrdersService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

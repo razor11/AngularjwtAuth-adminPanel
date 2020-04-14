@@ -1,1 +1,64 @@
-<p>lista-comercios works!</p>
+<mat-card>
+  
+    <mat-card-title>Comercios</mat-card-title>
+    <mat-divider></mat-divider>
+    
+    <br><br>
+
+    <mat-form-field>
+      <mat-label>Filtrar Comercios</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex.0034 Jhon">
+    </mat-form-field>
+    
+  
+  <mat-paginator  [pageSize]="5" style-paginator ></mat-paginator>
+    <table mat-table [dataSource]="dataSource" matSort matSortActive="Comercios">
+  
+      <!-- Position Column -->
+      <ng-container  matColumnDef="Id">
+        <th  mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> <span class="order-id">#{{element.id}}</span> 
+        </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="Nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Categoria">
+        <th mat-header-cell *matHeaderCellDef>Categoria </th>
+        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="Pais">
+        <th mat-header-cell *matHeaderCellDef>Pais </th>
+        <td mat-cell *matCellDef="let element"> {{element.pais}} </td>
+      </ng-container>
+
+         <!-- Symbol Column -->
+         <ng-container matColumnDef="Estado">
+            <th mat-header-cell *matHeaderCellDef>Estado </th>
+            <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+          </ng-container>
+
+              <!-- Symbol Column -->
+         <ng-container matColumnDef="Accion" >
+            <th mat-header-cell *matHeaderCellDef>Acción </th>
+            <td mat-cell *matCellDef="let row; index as id"><button  mat-icon-button color="accent"  (click)="getStore(row)">Ver Mas
+              <mat-icon>arrow_forward_ios</mat-icon>
+            </button> </td>
+          </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</mat-card>
+  
+  <!-- Copyright 2019 Google LLC. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->

@@ -1,6 +1,7 @@
-<mat-sidenav-container class="sidenav-container" autosize>
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+<mat-sidenav-container class="sidenav-container" fullscreen>
+
+  <mat-sidenav #start>
+
     <mat-toolbar color="primary" routerLink="/welcome" [routerLinkActiveOptions]="{exact:true}"
       routerLinkActive="active-list-item">
       <mat-icon aria-hidden="false" aria-label="Example home icon">home </mat-icon> Menu
@@ -14,20 +15,20 @@
         <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>
         Lista de pedidos
       </a>
-      <a mat-list-item routerLink="listaordenes" routerLinkActive="active-list-item">
+      <!-- <a mat-list-item routerLink="listaordenes" routerLinkActive="active-list-item">
         <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_bask</mat-icon>Listado de ordenes de
         entrega
-      </a>
+      </a> -->
       <a mat-list-item routerLink="listacomercios" routerLinkActive="active-list-item">
         <mat-icon aria-hidden="false" aria-label="Example home icon">store</mat-icon>Listado de comercios
       </a>
       <a mat-list-item routerLink="listaproductos" routerLinkActive="active-list-item">
         <mat-icon aria-hidden="false" aria-label="Example home icon">loyalty</mat-icon>Listado de productos
       </a>
-      <a mat-list-item routerLink="productlistPending" routerLinkActive="active-list-item">
+      <!-- <a mat-list-item routerLink="productlistPending" routerLinkActive="active-list-item">
         <mat-icon aria-hidden="false" aria-label="Example home icon">schedule</mat-icon>Productos pendientes de
         aprobación
-      </a>
+      </a> -->
       <a mat-list-item routerLink="categories" routerLinkActive="active-list-item">
         <mat-icon aria-hidden="false" aria-label="Example home icon">table_chart</mat-icon>Listado de categorias
       </a>
@@ -38,14 +39,18 @@
   </mat-sidenav>
   <mat-sidenav-content fullscreen>
     <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+      <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button> -->
+
+      <button mat-icon-button (click)="start.open('mouse')">
+        <mat-icon>menu</mat-icon>
       </button>
-      
-        <span class="spacer"></span>
-        <span>subemarket-admin</span>
-     
+
+      <span class="spacer"></span>
+      <span>subemarket-admin</span>
+
 
     </mat-toolbar>
     <!-- Content Section Start-->

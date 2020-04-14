@@ -1,0 +1,14 @@
+[
+    {
+        "id":"09890",
+        "name":"pizza hut",
+        "url":"https://www.pizzahutonline.hn/",
+        "logoImg":"../../../assets/pizza.jpg",
+        "coverImg":"../../../assets/cover.jpg",
+        "pais":"Honduras",
+        "estado":"activo",
+        "category":"restaurante",
+        "latitud":"890000",
+        "longitud":"-232323"
+    }
+]

@@ -1,0 +1,50 @@
+
+mat-card{
+    color: #444655;
+}
+
+mat-icon {
+    color: #ffffff;
+}
+
+mat-card-title{
+    color: #444655;
+}
+
+.categories-background{
+   background-color: #444655;
+}
+
+.categories-background mat-card-title {
+    color: #ffffff;
+    
+ }
+ 
+.add-padding-top{
+    padding-top: 2%;
+}
+
+
+
+.category-card{
+    text-align: center;
+}
+
+
+  /* Desktops and laptops ----------- */
+  @media only screen 
+  and (min-width : 1224px) {
+    .grid{
+        width:1224px ;
+    }
+    
+  }
+  
+  /* Large screens ----------- */
+  @media only screen 
+  and (min-width : 1824px) {
+    .grid{
+        width:1824px ;
+    }
+  
+  }

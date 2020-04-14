@@ -14,10 +14,9 @@ export class CategoriesService {
     return  this.http.get<Categories[]>('/assets/categories.json/');
   }
 
- 
 
-  editCategories(cat) {
-   
+  addCategories(newCategorie: string) {
+
 
   }
 

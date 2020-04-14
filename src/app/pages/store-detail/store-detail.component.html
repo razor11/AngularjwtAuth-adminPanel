@@ -1,0 +1,102 @@
+<mat-card class="grid">
+
+
+    <mat-toolbar-row>
+        
+        <mat-card-header>
+
+            <mat-card-title># {{dataSource.id}} {{dataSource.name}} </mat-card-title>
+            <div mat-card-avatar>
+                <mat-icon style="font-size: 30px;">store</mat-icon>
+            </div>
+        </mat-card-header>
+
+        <span class="example-spacer"></span>
+
+        <button class="headButton" [routerLink]="['/sidenav/listacomercios']" mat-stroked-button color="primary">
+            Atras
+        </button>
+    </mat-toolbar-row>
+
+    <mat-divider></mat-divider>
+    <div class="container  add-padding-top">
+        <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.xs="column">
+            <div fxFlex="30%">
+                <img src="{{dataSource.logoImg}}" width="50%"><img>
+                <table style="width: 100%; border-collapse:separate; 
+           border-spacing: 0 1em;  ">
+
+                    <tr class="border_bottom">
+                        <td> WebSite: 
+
+                        </td>
+                        <td>
+
+                            <mat-chip color="accent" selected>
+                                <a href="{{dataSource.url}}" target="_blank"> {{dataSource.url}}</a>
+                            </mat-chip>
+
+                        </td>
+
+                    </tr>
+                    <tr class="border_bottom">
+                        <td>WebSite:  </td>
+                        <td>
+                            {{dataSource.pais}}
+                        </td>
+
+                    </tr>
+                    <tr class="border_bottom">
+                        <td>Categoria: </td>
+                        <td>
+                            {{dataSource.category}}
+                        </td>
+
+                    </tr>
+
+                    <tr class="border_bottom">
+                        <td>Estado: </td>
+                        <td>
+                            <mat-chip-list>
+                                <mat-chip>
+                                    {{dataSource.estado}}
+                                </mat-chip>
+                            </mat-chip-list>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <tr class="border_bottom">
+                        <td>Cordenadas: </td>
+                        <td>
+                            {{dataSource.latitud}} {{dataSource.longitud}}
+                        </td>
+
+                    </tr>
+
+
+
+
+                </table>
+            </div>
+
+            <div fxFlex="30%">
+                <h3 style="text-align: center;">Cover</h3>
+                <img src={{dataSource.coverImg}} width="100%"><img>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+</mat-card>

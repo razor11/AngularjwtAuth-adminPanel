@@ -17,3 +17,14 @@
     color: #3f51b5;
   }
 
+
+ 
+
+  td, th {
+    width: 15%;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }

@@ -1,9 +1,10 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import {MatPaginator} from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { OrdersService } from 'src/app/services/orders/orders.service';
+import { Router } from '@angular/router';
 
 
 
@@ -16,10 +17,11 @@ export class ListaPedidosComponent implements OnInit {
   displayedColumns: string[] = ['Pedido', 'Total', 'MetododePago', 'IddePago', 'Estado', 'Accion'];
 
   dataSource;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private ordersData: OrdersService) { }
+  constructor(private ordersData: OrdersService,
+    public router: Router) { }
 
   ngOnInit() {
     this.ordersData.getOrders().subscribe((branches) => {
@@ -29,6 +31,14 @@ export class ListaPedidosComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
   }
+
+  public getRecord(row: any) {
+    console.log(row);
+    let jsonData = JSON.stringify(row);
+    this.router.navigate(['/sidenav/infopedidos', {jsonData : jsonData,}], { skipLocationChange: true });
+
+  }
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

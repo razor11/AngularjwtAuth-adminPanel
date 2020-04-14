@@ -3,8 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListaComerciosComponent } from './lista-comercios.component';
 
 
-const routes: Routes = [{path: '',
-component: ListaComerciosComponent}];
+
+const routes: Routes = [{
+  path: '',
+  component: ListaComerciosComponent
+
+}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

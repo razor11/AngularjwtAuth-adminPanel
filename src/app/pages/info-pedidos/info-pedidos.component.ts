@@ -29,17 +29,19 @@ export class InfoPedidosComponent implements OnInit {
 }
 
 
-  ngOnInit(): void {
-    this.data = this.ordersData.getOrders().subscribe((response) => {
-      this.data = (response);
-      this.route.paramMap.subscribe(params => { this.dataSource = this.data[+params.get('id')]; });
-      console.log(this.order);
-      this.order = this.dataSource;
-      this.order = new MatTableDataSource;
-    });
+  ngOnInit() {
+  
+    this.dataSource = JSON.parse(this.route.snapshot.params['jsonData']);
+    console.log(this.dataSource);
 
 
   }
 
 }
 
+// let id = this.route.snapshot.paramMap.get('id');
+//     console.log(id)
+//     this.data = this.ordersData.getOrdersDetails(id).subscribe((response) => {
+//       this.data = (response);
+//        this.dataSource = this.data;
+//     });

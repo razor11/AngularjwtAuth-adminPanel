@@ -2,81 +2,31 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InfoPedidosComponent } from './pages/info-pedidos/info-pedidos.component';
+import { AuthGuard } from './helpers/auth.guard';
 
 const routes: Routes = [
 
   {
-    path: 'welcome',
+    path: '',
     loadChildren: () =>
-      import('./pages/welcome/welcome.module').then(
-        m => m.WelcomeModule
+      import('./pages/login/login.module').then(
+        m => m.LoginModule
       )
   },
-
-
 
   {
     path: 'sidenav',
+    canActivate: [AuthGuard], 
     loadChildren: () =>
-      import('./pages/main-nav/main-nav.component').then(
-        m => m.MainNavComponent
+      import('./pages/main-nav/main-nav.module').then(
+        m => m.MainNavModule
       )
   },
+ 
+  { path: '**', redirectTo: '' },
 
-  { path: 'infopedidos/:id', component: InfoPedidosComponent },
-  {
-    path: 'listapedidos',
-    loadChildren: () =>
-      import('./pages/lista-pedidos/lista-pedidos.module').then(
-        m => m.ListaPedidosModule
-      )
-  },
 
-  {
-    path: 'listaordenes',
-    loadChildren: () =>
-      import('./pages/ordenes-list/ordenes-list.module').then(
-        m => m.OrdenesListModule
-      )
-  },
 
-  {
-    path: 'listacomercios',
-    loadChildren: () =>
-      import('./pages/lista-comercios/lista-comercios.module').then(
-        m => m.ListaComerciosModule
-      )
-  },
-
-  {
-    path: 'listaproductos',
-    loadChildren: () =>
-      import('./pages/lista-productos/lista-productos.module').then(
-        m => m.ListaProductosModule
-      )
-  },
-
-  {
-    path: 'productlistPending',
-    loadChildren: () =>
-      import('./pages/productlist-pending-aproval/productlist-pending-aproval.module').then(
-        m => m.ProductlistPendingAprovalModule
-      )
-  },
-
-  {
-    path: 'categories',
-    loadChildren: () =>
-      import('./pages/category-list/category-list.module').then(
-        m => m.CategoryListModule
-      )
-  },
-
-  {
-    path: '',
-    redirectTo: '/welcome',
-    pathMatch: 'full'
-  }
 ];
 
 

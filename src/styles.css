@@ -2,13 +2,12 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, sans-serif; }
-.router-outlet{
 
-    display: flex;
-    margin-top: 1%;
-    width: 1024pc;
-   
-  }
+
+* {
+  box-sizing: border-box;
+}
+
 
   .spacer {
     flex: 1 1 auto;
@@ -34,7 +33,7 @@ and (min-width : 1224px) {
 
     display: flex;
     margin-top: 1%;
-    width: 1024px;
+    width: 1224px;
    
 
     
@@ -42,13 +41,13 @@ and (min-width : 1224px) {
 
   
   table{
-    width: 1024px;
+    width: 1224px;
   }
   
 
   
 .order-dtl-table {
-  width: 1024px;
+  width: 1224px;
 
  
 }
@@ -61,13 +60,13 @@ and (min-width : 1824px) {
 
     display: flex;
     margin-top: 1%;
-    width: 1024px;
+    width: 1824px;
    
   }
 
   
 .order-dtl-table {
-  width: 1024px;
+  width: 1824px;
 
  
 }
