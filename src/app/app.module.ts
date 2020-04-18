@@ -30,6 +30,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthService } from './services/auth/auth.service';
 import { ListaComerciosComponent } from './pages/lista-comercios/lista-comercios.component';
 import { StoreDetailComponent } from './pages/store-detail/store-detail.component';
+import { ListaProductosComponent } from './pages/lista-productos/lista-productos.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { StoreDetailComponent } from './pages/store-detail/store-detail.componen
     MainNavComponent,
     OrdenesListComponent,
     ListaPedidosComponent,
+    ListaProductosComponent,
     InfoPedidosComponent,
     CategoryListComponent,
     StylePaginatorDirective,
@@ -73,8 +75,6 @@ import { StoreDetailComponent } from './pages/store-detail/store-detail.componen
     MatInputModule,
     ReactiveFormsModule,
     FormsModule
-    
-
   ],
   entryComponents: [ListaPedidosComponent],
   providers: [

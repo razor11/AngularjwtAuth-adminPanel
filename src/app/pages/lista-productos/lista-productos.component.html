@@ -1,1 +1,46 @@
-<p>lista-productos works!</p>
+<mat-card>
+
+    <mat-card-title>Productos</mat-card-title>
+    <mat-divider></mat-divider>
+    <div class="mat-table order-dtl-table">
+        <div class="mat-header-row">
+            <div class="mat-header-cell">Imagen</div>
+            <div class="mat-header-cell">Nombre</div>
+            <div class="mat-header-cell">Categoria</div>
+            <div class="mat-header-cell">Precio</div>
+            <div class="mat-header-cell">Detalle</div>
+            <div class="mat-header-cell">Estado</div>
+        </div>
+        <div class="mat-row">
+            <div class="mat-cell">
+
+                <img style="width: 70%;" src="../../../assets/product.jpg">
+            </div>
+            <div class="mat-cell">
+      
+                        <p mat-line>Nombre: Test</p>
+                        <p mat-line>Tienda: Test</p>
+
+                   
+            </div>
+            <div class="mat-cell">
+               <p>Test</p>
+            </div>
+            <div class="mat-cell">
+                <p>2000</p>
+            </div>
+            <div class="mat-cell">
+                <a mat-stroked-button routerLink=".">Mas Información</a>
+            </div>
+            <div class="mat-cell">
+                <mat-slide-toggle>Visible</mat-slide-toggle>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</mat-card>

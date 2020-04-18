@@ -6,7 +6,7 @@ import { ListaProductosComponent } from './lista-productos.component';
 
 
 @NgModule({
-  declarations: [ListaProductosComponent],
+  declarations: [],
   imports: [
     CommonModule,
     ListaProductosRoutingModule
