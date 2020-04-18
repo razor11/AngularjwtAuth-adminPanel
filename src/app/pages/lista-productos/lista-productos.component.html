@@ -1,6 +1,32 @@
 <mat-card>
+      <mat-toolbar-row class="lo">
+        <mat-card-header>
 
-    <mat-card-title>Productos</mat-card-title>
+            <mat-card-title>Productos</mat-card-title>
+           
+        </mat-card-header>
+      
+        <span class="example-spacer"></span>
+        <button mat-icon-button  (click)="openSearch()">
+            <mat-icon>search</mat-icon>
+        </button>  
+    </mat-toolbar-row>
+
+
+    <mat-toolbar-row class="search-block mat-elevation-z4" [class.active]="toggleSearch">
+		<mat-toolbar-row style="padding: 0 5px;">
+			<button class="search-icon" mat-icon-button disabled>
+        <mat-icon>search</mat-icon>
+      </button>
+      <input class="search-control" type="text" placeholder="Buscar Productos" [(ngModel)]="searchText" #searchbar>
+      <button mat-button mat-icon-button (click)="searchClose()">
+        <mat-icon>close</mat-icon>
+      </button> 
+  </mat-toolbar-row>
+  </mat-toolbar-row>
+
+  
+ 
     <mat-divider></mat-divider>
     <div class="mat-table order-dtl-table">
         <div class="mat-header-row">
@@ -8,32 +34,35 @@
             <div class="mat-header-cell">Nombre</div>
             <div class="mat-header-cell">Categoria</div>
             <div class="mat-header-cell">Precio</div>
-            <div class="mat-header-cell">Detalle</div>
+            <!-- <div class="mat-header-cell">Detalle</div> -->
             <div class="mat-header-cell">Estado</div>
         </div>
-        <div class="mat-row">
+        <div class="mat-row" *ngFor="let Product of produts | filter: searchText">
             <div class="mat-cell">
 
-                <img style="width: 70%;" src="../../../assets/product.jpg">
+                <img style="width: 70%;" src="{{Product.image}}">
             </div>
             <div class="mat-cell">
       
-                        <p mat-line>Nombre: Test</p>
-                        <p mat-line>Tienda: Test</p>
+                        <p mat-line>Nombre: {{Product.name}}</p>
+                        <p mat-line>Tienda: {{Product.store}}</p>
 
                    
             </div>
             <div class="mat-cell">
-               <p>Test</p>
+               <p>{{Product.description}}</p>
             </div>
             <div class="mat-cell">
-                <p>2000</p>
+                <p>{{Product.price |  currency:'L' }}</p>
             </div>
-            <div class="mat-cell">
+            <!-- <div class="mat-cell">
                 <a mat-stroked-button routerLink=".">Mas Información</a>
-            </div>
+            </div> -->
             <div class="mat-cell">
-                <mat-slide-toggle>Visible</mat-slide-toggle>
+                <form  [formGroup]="formGroup" >
+
+            <mat-slide-toggle [checked]="Product.is_visible" >Visible</mat-slide-toggle>
+                </form>
             </div>
 
         </div>

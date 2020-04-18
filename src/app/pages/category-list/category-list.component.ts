@@ -22,7 +22,7 @@ export class CategoryListComponent implements OnInit {
   ngOnInit() {
 
     this.categorieService.getCategories().subscribe((response) => {
-      this.categories = (response)
+      this.categories = (response);
       this.isLoading = false;
     });
 

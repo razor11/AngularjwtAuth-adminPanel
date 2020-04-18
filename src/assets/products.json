@@ -1,0 +1,57 @@
+[
+    {
+        "id":"09807",
+        "name": "Crema",
+        "store": "Dynant",
+        "image": "../../../assets/images/product.jpg",
+        "description": "string",
+        "price": "350",
+        "is_visible": "true"
+    },
+    {
+        "id":"09805",
+        "name": "Papel",
+        "store": "Diunsa",
+        "image": "../../../assets/images/product.jpg",
+        "description": "string",
+        "price": "350",
+        "is_visible": "true"
+    },
+    {
+        "id":"09809",
+        "name": "Lapiz",
+        "store": "CafeLo",
+        "image": "../../../assets/images/product.jpg",
+        "description": "string",
+        "price": "350",
+        "is_visible": "true"
+    },
+    {
+        "id":"098034",
+        "name": "Jabon",
+        "store": "BK",
+        "image": "../../../assets/images/product.jpg",
+        "description": "string",
+        "price": "350",
+        "is_visible": "true"
+    },
+    {
+        "id":"098027",
+        "name": "carne",
+        "store": "MacDonald",
+        "image": "../../../assets/images/product.jpg",
+        "description": "string",
+        "price": "350",
+        "is_visible": "true"
+    },
+    {
+        "id":"12345",
+        "name": "Leche",
+        "store": "Pops",
+        "image": "../../../assets/images/product.jpg",
+        "description": "string",
+        "price": "350",
+        "is_visible": "true"
+    }
+
+]

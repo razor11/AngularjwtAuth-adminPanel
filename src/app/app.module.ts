@@ -31,6 +31,7 @@ import { AuthService } from './services/auth/auth.service';
 import { ListaComerciosComponent } from './pages/lista-comercios/lista-comercios.component';
 import { StoreDetailComponent } from './pages/store-detail/store-detail.component';
 import { ListaProductosComponent } from './pages/lista-productos/lista-productos.component';
+import { ProdutcFilterPipe } from './pipes/products.filter.pipe';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { ListaProductosComponent } from './pages/lista-productos/lista-productos
     ListaComerciosComponent,
     LoginComponent,
     StoreDetailComponent,
+    ProdutcFilterPipe
   ],
   imports: [
     BrowserModule,
