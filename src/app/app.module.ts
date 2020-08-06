@@ -22,7 +22,7 @@ import { InfoPedidosComponent } from './pages/info-pedidos/info-pedidos.componen
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StylePaginatorDirective } from './pages/directives/style-paginator';
-import { JwtModule } from '@auth0/angular-jwt';
+import { JwtModule, JwtInterceptor } from '@auth0/angular-jwt';
 import { CategoryListComponent } from './pages/category-list/category-list.component';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +32,9 @@ import { ListaComerciosComponent } from './pages/lista-comercios/lista-comercios
 import { StoreDetailComponent } from './pages/store-detail/store-detail.component';
 import { ListaProductosComponent } from './pages/lista-productos/lista-productos.component';
 import { ProdutcFilterPipe } from './pipes/products.filter.pipe';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { fakeBackendProvider } from './helpers/fake_backend';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 
 
 @NgModule({
@@ -81,7 +84,12 @@ import { ProdutcFilterPipe } from './pipes/products.filter.pipe';
   entryComponents: [ListaPedidosComponent],
   providers: [
     OrdersService,
-    AuthService
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider,
   ],
   bootstrap: [AppComponent]
 })

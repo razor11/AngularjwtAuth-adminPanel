@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'subemarket-admin'`, () => {
+  it(`should have as title 'admin-panel'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('subemarket-admin');
+    expect(app.title).toEqual('admin-panel');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('subemarket-admin app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('admin-panel app is running!');
   });
 });

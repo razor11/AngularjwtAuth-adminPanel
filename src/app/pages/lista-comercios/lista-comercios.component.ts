@@ -36,7 +36,7 @@ export class ListaComerciosComponent implements OnInit {
   public getStore(row: any) {
     console.log(row);
     let store = JSON.stringify(row);
-    this.router.navigate(['/sidenav/listacomercios/storedetails', {store : store,}], { skipLocationChange: true });
+    this.router.navigate(['/listacomercios/storedetails', {store : store,}], { skipLocationChange: true });
 
   }
 

@@ -35,7 +35,7 @@ export class ListaPedidosComponent implements OnInit {
   public getRecord(row: any) {
     console.log(row);
     let jsonData = JSON.stringify(row);
-    this.router.navigate(['/sidenav/infopedidos', {jsonData : jsonData,}], { skipLocationChange: true });
+    this.router.navigate(['/infopedidos', {jsonData : jsonData,}], { skipLocationChange: true });
 
   }
 

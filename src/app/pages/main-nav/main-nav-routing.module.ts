@@ -125,7 +125,7 @@ const routes: Routes = [{
 
         {
             path: '',
-            redirectTo: '/sidenav/welcome',
+            redirectTo: 'welcome',
             pathMatch: 'full'
         }
     ]
@@ -134,7 +134,7 @@ const routes: Routes = [{
 },
 {
     path: '',
-    redirectTo: '/sidenav/home',
+    redirectTo: 'home',
     pathMatch: 'full'
 }
 

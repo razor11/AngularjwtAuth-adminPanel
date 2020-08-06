@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InfoPedidosComponent } from './pages/info-pedidos/info-pedidos.component';
-import { AuthGuard } from './helpers/auth.guard';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
 
   {
-    path: '',
+    path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then(
         m => m.LoginModule
@@ -15,8 +15,8 @@ const routes: Routes = [
   },
 
   {
-    path: 'sidenav',
-    canActivate: [AuthGuard], 
+    path: '',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/main-nav/main-nav.module').then(
         m => m.MainNavModule

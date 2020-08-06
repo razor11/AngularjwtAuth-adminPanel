@@ -1,32 +1,33 @@
 <mat-card>
-      <mat-toolbar-row class="lo">
+    <mat-toolbar-row class="lo">
         <mat-card-header>
 
             <mat-card-title>Productos</mat-card-title>
-           
+
         </mat-card-header>
-      
+
         <span class="example-spacer"></span>
-        <button mat-icon-button  (click)="openSearch()">
+        <button mat-icon-button (click)="openSearch()">
             <mat-icon>search</mat-icon>
-        </button>  
+        </button>
     </mat-toolbar-row>
 
 
     <mat-toolbar-row class="search-block mat-elevation-z4" [class.active]="toggleSearch">
-		<mat-toolbar-row style="padding: 0 5px;">
-			<button class="search-icon" mat-icon-button disabled>
-        <mat-icon>search</mat-icon>
-      </button>
-      <input class="search-control" type="text" placeholder="Buscar Productos" [(ngModel)]="searchText" #searchbar>
-      <button mat-button mat-icon-button (click)="searchClose()">
-        <mat-icon>close</mat-icon>
-      </button> 
-  </mat-toolbar-row>
-  </mat-toolbar-row>
+        <mat-toolbar-row style="padding: 0 5px;">
+            <button class="search-icon" mat-icon-button disabled>
+                <mat-icon>search</mat-icon>
+            </button>
+            <input class="search-control" type="text" placeholder="Buscar Productos" [(ngModel)]="searchText"
+                #searchbar>
+            <button mat-button mat-icon-button (click)="searchClose()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar-row>
 
-  
- 
+
+
     <mat-divider></mat-divider>
     <div class="mat-table order-dtl-table">
         <div class="mat-header-row">
@@ -43,14 +44,14 @@
                 <img style="width: 70%;" src="{{Product.image}}">
             </div>
             <div class="mat-cell">
-      
-                        <p mat-line>Nombre: {{Product.name}}</p>
-                        <p mat-line>Tienda: {{Product.store}}</p>
 
-                   
+                <p mat-line>Nombre: {{Product.name}}</p>
+                <p mat-line>Tienda: {{Product.store}}</p>
+
+
             </div>
             <div class="mat-cell">
-               <p>{{Product.description}}</p>
+                <p>{{Product.description}}</p>
             </div>
             <div class="mat-cell">
                 <p>{{Product.price |  currency:'L' }}</p>
@@ -59,13 +60,18 @@
                 <a mat-stroked-button routerLink=".">Mas Información</a>
             </div> -->
             <div class="mat-cell">
-                <form  [formGroup]="formGroup" >
+                <form [formGroup]="formGroup">
 
-            <mat-slide-toggle [checked]="Product.is_visible" >Visible</mat-slide-toggle>
+                    <mat-slide-toggle [checked]="Product.is_visible">Visible</mat-slide-toggle>
                 </form>
             </div>
 
         </div>
+        <mat-list-item *ngIf="(produts | filter: searchText).length === 0">
+            <mat-icon mat-list-avatar>error</mat-icon>
+            <div mat-line>0 resultados</div>
+            <div mat-line>Ningun producto encontrado</div>
+        </mat-list-item>
 
 
     </div>

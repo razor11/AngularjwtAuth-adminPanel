@@ -1,26 +1,46 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { first } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   login: FormGroup;
   error = '';
+  loading = false;
+  submitted = false;
+  returnUrl: string;
 
-  constructor(private formBuilder: FormBuilder,
-              public authService: AuthService,
-              private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthService
+  ) {}
+
 
   ngOnInit() {
-    this.createForm();
-  }
+    this.login = this.formBuilder.group({
+        username: ['', Validators.required],
+        password: ['', Validators.required]
+    });
 
+    // reset login status
+    this.authenticationService.logout();
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+}
   createForm() {
     this.login = this.formBuilder.group({
       username: ['', Validators.required],
@@ -28,38 +48,27 @@ export class LoginComponent implements OnInit {
     });
   }
 
+   // convenience getter for easy access to form fields
+   get f() { return this.login.controls; }
 
-  getError(el) {
-    switch (el) {
-      case 'user':
-        if (this.login.get('username').hasError('required')) {
-          return 'Username required';
-        }
-        break;
-      case 'pass':
-        if (this.login.get('password').hasError('required')) {
-          return 'Password required';
-        }
-        break;
-      default:
-        return '';
-    }
-  }
+   onSubmit() {
+       this.submitted = true;
 
+       // stop here if form is invalid
+       if (this.login.invalid) {
+           return;
+       }
 
-  get f() { return this.login.controls; }
-
-  onSubmit(post) {
-    this.authService.login(this.f.username.value, this.f.password.value)
-    .pipe(first())
-    .subscribe(
-        data => {
-            this.router.navigate(['/sidenav']);
-        },
-        error => {
-            this.error = error;
-        });
-  }
-
-
+       this.loading = true;
+       this.authenticationService.login(this.f.username.value, this.f.password.value)
+           .pipe(first())
+           .subscribe(
+               data => {
+                   this.router.navigate([this.returnUrl]);
+               },
+               error => {
+                   this.error = error;
+                   this.loading = false;
+               });
+   }
 }

@@ -1,60 +1,42 @@
 import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, ReplaySubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ResponseAuth } from 'src/app/schemas/responseAuth';
 
+import { config } from '../../../config';
+import { User } from '../../models/users';
 
-declare var CryptoJS;
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
+    private currentUserSubject: BehaviorSubject<User>;
+    public currentUser: Observable<User>;
 
-  authUser = new ReplaySubject<any>(1);
+    constructor(private http: HttpClient) {
+        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+        this.currentUser = this.currentUserSubject.asObservable();
+    }
 
-  constructor(public jwtHelper: JwtHelperService,
-              private readonly http: HttpClient) { }
+    public get currentUserValue(): User {
+        return this.currentUserSubject.value;
+    }
 
+    login(username: string, password: string) {
+        return this.http.post<any>(`${config.apiUrl}//users/authenticate`, { username, password })
+            .pipe(map(user => {
+                // login successful if there's a jwt token in the response
+                if (user && user.token) {
+                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    this.currentUserSubject.next(user);
+                }
 
-  public isAuthenticated(): boolean {
-    const token = localStorage.getItem('jwt');
-    // Check whether the token is expired and return
-    // true or false
-    return !this.jwtHelper.isTokenExpired(token);
-  }
+                return user;
+            }));
+    }
 
-  login(username: string, password: string): Observable<any> {
-
-
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-
-    let body = {
-      'username': CryptoJS.AES.encrypt(username).toString(CryptoJS.enc.Utf8),
-      'password': CryptoJS.AES.encrypt(password).toString(CryptoJS.enc.Utf8)
-    };
-
-    return this.http.post('url', JSON.stringify(body), { headers: headers })
-      .pipe(
-        map((res: ResponseAuth) => this.handleJwtResponse(res.token))
-      );
-
-
-  }
-
-  private handleJwtResponse(jwt: string) {
-    return localStorage.set('jwt', jwt)
-        .then(() => this.authUser.next(jwt))
-        .then(() => jwt);
-}
-
-logout() {
-
-  localStorage.remove('jwt').then(() => this.authUser.next(null));
-}
-
+    logout() {
+        // remove user from local storage to log user out
+        localStorage.removeItem('currentUser');
+        this.currentUserSubject.next(null);
+    }
 }
