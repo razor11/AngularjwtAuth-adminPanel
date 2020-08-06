@@ -14,7 +14,6 @@ import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { OrdenesListComponent } from './pages/ordenes-list/ordenes-list.component';
 import { MatNativeDateModule } from '@angular/material/core';
-import { DemoMaterialModule } from './Material-module';
 import { ListaPedidosComponent } from './pages/lista-pedidos/lista-pedidos.component';
 import { OrdersService } from './services/orders/orders.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -65,7 +64,6 @@ import { StylePaginatorDirective } from './pages/directives/style-paginator';
     MatListModule,
     AppRoutingModule,
     MatNativeDateModule,
-    DemoMaterialModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
