@@ -37,6 +37,8 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
 import { StylePaginatorDirective } from './pages/directives/style-paginator';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
