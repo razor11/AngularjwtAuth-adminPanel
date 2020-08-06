@@ -21,7 +21,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { InfoPedidosComponent } from './pages/info-pedidos/info-pedidos.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { JwtModule, JwtInterceptor } from '@auth0/angular-jwt';
 import { CategoryListComponent } from './pages/category-list/category-list.component';
 import {MatInputModule} from '@angular/material/input';
