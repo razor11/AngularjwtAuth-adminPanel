@@ -12,12 +12,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
+import {MatCardModule} from '@angular/material/card';
 import { OrdenesListComponent } from './pages/ordenes-list/ordenes-list.component';
 import { MatNativeDateModule } from '@angular/material/core';
-import { DemoMaterialModule } from './Material-module';
+import {MatMenuModule} from '@angular/material/menu';
 import { ListaPedidosComponent } from './pages/lista-pedidos/lista-pedidos.component';
 import { OrdersService } from './services/orders/orders.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InfoPedidosComponent } from './pages/info-pedidos/info-pedidos.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -31,10 +32,33 @@ import { ListaComerciosComponent } from './pages/lista-comercios/lista-comercios
 import { StoreDetailComponent } from './pages/store-detail/store-detail.component';
 import { ListaProductosComponent } from './pages/lista-productos/lista-productos.component';
 import { ProdutcFilterPipe } from './pipes/products.filter.pipe';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { fakeBackendProvider } from './helpers/fake_backend';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { StylePaginatorDirective } from './pages/directives/style-paginator';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
+import {MatGridListModule} from '@angular/material/grid-list';
+
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatChipsModule} from '@angular/material/chips';
+
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -62,9 +86,39 @@ import { StylePaginatorDirective } from './pages/directives/style-paginator';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatButtonModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
     AppRoutingModule,
     MatNativeDateModule,
-    DemoMaterialModule,
+    MatMenuModule,
+    MatCardModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
